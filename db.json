@@ -1,0 +1,159 @@
+{
+    "characters": [
+      {
+        "id": 1,
+        "name": "Naruto Uzumaki",
+        "description": "A young ninja with big dreams of becoming the Hokage.",
+        "anime": "Naruto",
+        "image": "https://example.com/naruto.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Sasuke Uchiha",
+        "description": "A highly skilled ninja with a tragic past.",
+        "anime": "Naruto",
+        "image": "https://example.com/sasuke.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Sakura Haruno",
+        "description": "A ninja who is skilled in medical jutsu and passionate about becoming strong.",
+        "anime": "Naruto",
+        "image": "https://example.com/sakura.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Kakashi Hatake",
+        "description": "A laid-back but powerful ninja, known for his Sharingan eye.",
+        "anime": "Naruto",
+        "image": "https://example.com/kakashi.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Luffy Monkey D.",
+        "description": "The rubber-bodied pirate who seeks the One Piece.",
+        "anime": "One Piece",
+        "image": "https://example.com/luffy.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Zoro Roronoa",
+        "description": "A swordsman who uses three swords in battle.",
+        "anime": "One Piece",
+        "image": "https://example.com/zoro.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Nami",
+        "description": "A skilled navigator and thief, and a member of the Straw Hat Pirates.",
+        "anime": "One Piece",
+        "image": "https://example.com/nami.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Usopp",
+        "description": "A sniper and a skilled liar, who dreams of becoming a brave warrior of the sea.",
+        "anime": "One Piece",
+        "image": "https://example.com/usopp.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Sanji",
+        "description": "A talented cook and martial artist, known for his strong legs.",
+        "anime": "One Piece",
+        "image": "https://example.com/sanji.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Violet Beauregarde",
+        "description": "A bratty girl who turns into a giant blueberry.",
+        "anime": "Charlie and the Chocolate Factory",
+        "image": "https://example.com/violet.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Goku",
+        "description": "A Saiyan raised on Earth, the protagonist of Dragon Ball.",
+        "anime": "Dragon Ball",
+        "image": "https://example.com/goku.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Vegeta",
+        "description": "The proud Saiyan prince, initially a rival to Goku.",
+        "anime": "Dragon Ball",
+        "image": "https://example.com/vegeta.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Bulma",
+        "description": "A brilliant scientist and Goku’s first friend.",
+        "anime": "Dragon Ball",
+        "image": "https://example.com/bulma.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Shinji Ikari",
+        "description": "A troubled teen pilot of the giant mecha Evangelion.",
+        "anime": "Neon Genesis Evangelion",
+        "image": "https://example.com/shinji.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Asuka Langley Soryu",
+        "description": "A brash and confident Eva pilot from Germany.",
+        "anime": "Neon Genesis Evangelion",
+        "image": "https://example.com/asuka.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Rei Ayanami",
+        "description": "A mysterious, quiet girl who serves as one of the main Eva pilots.",
+        "anime": "Neon Genesis Evangelion",
+        "image": "https://example.com/rei.jpg"
+      },
+      {
+        "id": 17,
+        "name": "Light Yagami",
+        "description": "A high school student who gains a supernatural notebook to kill anyone.",
+        "anime": "Death Note",
+        "image": "https://example.com/light.jpg"
+      },
+      {
+        "id": 18,
+        "name": "L Lawliet",
+        "description": "A brilliant but eccentric detective trying to stop Light Yagami.",
+        "anime": "Death Note",
+        "image": "https://example.com/l.jpg"
+      },
+      {
+        "id": 19,
+        "name": "Edward Elric",
+        "description": "A talented alchemist who is searching for the Philosopher’s Stone.",
+        "anime": "Fullmetal Alchemist",
+        "image": "https://example.com/edward.jpg"
+      },
+      {
+        "id": 20,
+        "name": "Alphonse Elric",
+        "description": "Edward's younger brother whose soul is trapped in a suit of armor.",
+        "anime": "Fullmetal Alchemist",
+        "image": "https://example.com/alphonse.jpg"
+      },
+      {
+        "id": 21,
+        "name": "Isagi Yoichi",
+        "description": "A forward player in the Blue Lock program, determined to become the best striker.",
+        "anime": "Blue Lock",
+        "image": "https://example.com/isagi.jpg"
+      },
+      {
+        "id": 22,
+        "name": "Tanjiro Kamado",
+        "description": "A kind-hearted young boy who becomes a demon slayer after his family is slaughtered.",
+        "anime": "Demon Slayer",
+        "image": "https://example.com/tanjiro.jpg"
+      }
+    ]
+  }
+  
