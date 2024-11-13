@@ -73,3 +73,7 @@ header button:hover {
   cursor: pointer;
   margin-top: 2rem;
 }
+
+.character-card button:hover {
+  background-color: #45a049;
+}
