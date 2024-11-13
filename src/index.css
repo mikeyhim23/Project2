@@ -138,3 +138,10 @@ add-character-form input {
 .add-character-form button;hover {
   background-color: #444;
 }
+
+.error {
+  color: #e74c3c;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  text-align: center;
+}
