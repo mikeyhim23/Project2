@@ -63,3 +63,13 @@ header button:hover {
   font-size: 1.2rem;
   color: #666;
 }
+
+.character-card button {
+  background-color: #4caf50;
+  color: whitesmoke;
+  border: none;
+  padding: 0.rem 1.2rem;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 2rem;
+}
