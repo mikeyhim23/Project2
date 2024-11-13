@@ -45,3 +45,11 @@ header button:hover {
 .character-card:hover {
   transform: scale(1.05);
 }
+
+.character-card img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
