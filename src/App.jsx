@@ -62,7 +62,6 @@ function App() {
     setFilteredCharacters(characters)
   }
 
-  // Handle delete character
   const handleDeleteCharacter = (id) => {
     fetch(`http://localhost:3000/characters/${id}`, {
       method: 'DELETE',
