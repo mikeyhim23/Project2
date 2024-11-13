@@ -77,3 +77,32 @@ header button:hover {
 .character-card button:hover {
   background-color: #45a049;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.search-bar input {
+  padding: 0.8rem;
+  font-size: 2rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #444;
+}
