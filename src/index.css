@@ -53,3 +53,13 @@ header button:hover {
   border-radius: 10px;
   margin-bottom: 2rem;
 }
+
+.character-card h3 {
+  font-size: 1.8rem;
+  margin: 0.8rem 0;
+}
+
+.character-card p {
+  font-size: 1.2rem;
+  color: #666;
+}
