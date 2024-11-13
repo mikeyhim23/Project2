@@ -145,3 +145,16 @@ add-character-form input {
   margin-top: 2rem;
   text-align: center;
 }
+
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.character-card {
+  flex: 2 2 44%;
+  max-width: 280px;
+  margin: 2rem;
+}
