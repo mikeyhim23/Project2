@@ -1,82 +1,90 @@
 import React, { useState, useEffect } from 'react';
 import CharacterCard from './CharacterCard';
-import SearchBar from './SearchBar'; 
+import SearchBar from './SearchBar';
+import AddCharacter from './AddCharacter'; // New component for adding characters
 
 function App() {
-  const [characters, setCharacters] = useState([])
-  const [searchQuery, setSearchQuery] = useState('')
-  const [filteredCharacters, setFilteredCharacters] = useState([])
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [characters, setCharacters] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCharacters, setFilteredCharacters] = useState([]);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [newCharacter, setNewCharacter] = useState({
     name: '',
     description: '',
     anime: '',
-    image: '', 
-  })
+    image: '',
+  });
 
+  const [showHome, setShowHome] = useState(true); // This state determines whether to show the Home section or Add Character section
+
+  // Fetch characters from the server
   const fetchCharacters = () => {
-    setLoading(true)
-    fetch('http://localhost:3000/characters') 
+    setLoading(true);
+    fetch('http://localhost:3000/characters')
       .then((res) => res.json())
       .then((data) => {
-        setCharacters(data)
-        setFilteredCharacters(data)
-        setError('')
+        setCharacters(data);
+        setFilteredCharacters(data);
+        setError('');
       })
       .catch((err) => {
-        setError('Cannot fetch character data.')
+        setError('Cannot fetch character data.');
       })
-      .then(() => {
-        setLoading(false)
-      })
-  }
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value)
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Handle search form submit
   const handleSearchSubmit = () => {
     if (searchQuery.trim() === '') {
-      setError('Enter character name.')
-      setFilteredCharacters(characters)
+      setError('Enter character name.');
+      setFilteredCharacters(characters);
     } else {
       const searchResults = characters.filter((character) =>
         character.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
       if (searchResults.length > 0) {
-        setFilteredCharacters(searchResults)
-        setError('')
+        setFilteredCharacters(searchResults);
+        setError('');
       } else {
-        setError('No characters found.')
-        setFilteredCharacters([])
+        setError('No characters found.');
+        setFilteredCharacters([]);
       }
     }
   };
 
+  // Handle delete character
   const handleDeleteCharacter = (id) => {
     fetch(`http://localhost:3000/characters/${id}`, {
-      method: 'DELETE', 
+      method: 'DELETE',
       headers: {
-        'Content-Type': 'app/json',
+        'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json()) 
+      .then((res) => res.json())
       .then(() => {
         setCharacters((oldCharacters) =>
           oldCharacters.filter((character) => character.id !== id)
-        )
+        );
       })
       .catch((err) => {
-        setError('Cannot delete.')
-      })
-  }
+        setError('Cannot delete.');
+      });
+  };
 
+  // Handle edit character
   const handleEditCharacter = (id, updatedData) => {
     fetch(`http://localhost:3000/characters/${id}`, {
-      method: 'PATCH', 
+      method: 'PATCH',
       headers: {
-        'Content-Type': 'app/json', 
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(updatedData),
     })
@@ -89,10 +97,11 @@ function App() {
         );
       })
       .catch((err) => {
-        setError('Cannot update.')
-      })
-  }
+        setError('Cannot update.');
+      });
+  };
 
+  // Handle add new character
   const handleAddCharacter = () => {
     if (!newCharacter.name || !newCharacter.description || !newCharacter.anime) {
       setError('Fill in all fields.');
@@ -100,84 +109,73 @@ function App() {
     }
 
     fetch('http://localhost:3000/characters', {
-      method: 'POST', 
+      method: 'POST',
       headers: {
-        'Content-Type': 'app/json',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newCharacter), 
+      body: JSON.stringify(newCharacter),
     })
-      .then((res) => res.json()) 
+      .then((res) => res.json())
       .then((createdCharacter) => {
-        setCharacters((oldCharacters) => [...oldCharacters, createdCharacter])
-        setNewCharacter({ name: '', description: '', anime: '', image: '' })
-        setError(''); 
+        setCharacters((oldCharacters) => [...oldCharacters, createdCharacter]);
+        setNewCharacter({ name: '', description: '', anime: '', image: '' });
+        setError('');
       })
       .catch((err) => {
-        setError('Cannot to add character.')
-      })
-  }
+        setError('Cannot add character.');
+      });
+  };
 
   useEffect(() => {
-    fetchCharacters()
-  }, [])
+    fetchCharacters();
+  }, []);
 
   return (
     <div className="App">
-      <h2>Search for Anime Characters</h2>
-      
-      <SearchBar
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange} 
-        onSearchSubmit={handleSearchSubmit}
-      />
+      <header>
+        <button onClick={() => setShowHome(true)}>Home</button>
+        <button onClick={() => setShowHome(false)}>Add Character</button>
+      </header>
 
-      {error && <p className="error">{error}</p>} 
+      {showHome ? (
+        <div>
+          <h2>Search for Anime Characters</h2>
 
-      {loading ? (
-        <p>Loading...</p> 
-      ) : (
-        <div className="character-list">
-          {filteredCharacters.length > 0 ? (
-            filteredCharacters.map((character) => (
-              <CharacterCard 
-                key={character.id} 
-                character={character} 
-                onDelete={() => handleDeleteCharacter(character.id)}
-                onEdit={(updatedData) => handleEditCharacter(character.id, updatedData)}
-              />
-            ))
+          <SearchBar
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onSearchSubmit={handleSearchSubmit}
+          />
+
+          {error && <p className="error">{error}</p>}
+
+          {loading ? (
+            <p>Loading...</p>
           ) : (
-            <p>null</p>
+            <div className="character-list">
+              {filteredCharacters.length > 0 ? (
+                filteredCharacters.map((character) => (
+                  <CharacterCard
+                    key={character.id}
+                    character={character}
+                    onDelete={() => handleDeleteCharacter(character.id)}
+                    onEdit={(updatedData) => handleEditCharacter(character.id, updatedData)}
+                  />
+                ))
+              ) : (
+                <p>No characters found</p>
+              )}
+            </div>
           )}
         </div>
+      ) : (
+        <AddCharacter
+          newCharacter={newCharacter}
+          setNewCharacter={setNewCharacter}
+          handleAddCharacter={handleAddCharacter}
+          setError={setError}
+        />
       )}
-
-      <h3>Add a New Character</h3>
-      <input
-        type="text"
-        placeholder="Name"
-        value={newCharacter.name}
-        onChange={(e) => setNewCharacter({ ...newCharacter, name: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={newCharacter.description}
-        onChange={(e) => setNewCharacter({ ...newCharacter, description: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Anime"
-        value={newCharacter.anime}
-        onChange={(e) => setNewCharacter({ ...newCharacter, anime: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Image URL (optional)"
-        value={newCharacter.image}
-        onChange={(e) => setNewCharacter({ ...newCharacter, image: e.target.value })}
-      />
-      <button onClick={handleAddCharacter}>Add Character</button>
     </div>
   );
 }

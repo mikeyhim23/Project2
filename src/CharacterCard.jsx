@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 function CharacterCard({ character, onDelete, onEdit }) {
-  const [editing, setEditing] = useState(false)
-  const [updatedDescription, setUpdatedDescription] = useState(character.description)
-  const [updatedName, setUpdatedName] = useState(character.name)
-  const [updatedAnime, setUpdatedAnime] = useState(character.anime)
-  const [updatedImage, setUpdatedImage] = useState(character.image || '')
+  const [editing, setEditing] = useState(false);
+  const [updatedDescription, setUpdatedDescription] = useState(character.description);
+  const [updatedName, setUpdatedName] = useState(character.name);
+  const [updatedAnime, setUpdatedAnime] = useState(character.anime);
+  const [updatedImage, setUpdatedImage] = useState(character.image || '');
 
   const doEdit = () => {
     setEditing(!editing);
@@ -17,20 +17,20 @@ function CharacterCard({ character, onDelete, onEdit }) {
       name: updatedName,
       description: updatedDescription,
       anime: updatedAnime,
-      image: updatedImage, 
+      image: updatedImage,
     };
-    onEdit(updatedData)
-    doEdit()
+    onEdit(updatedData);
+    doEdit();
   };
 
   return (
     <div className="character-card">
       <img
-        src={updatedImage || 'default-image-url.jpg'} 
+        src={updatedImage || 'default-image-url.jpg'}
         alt={updatedName || 'Unknown character'}
       />
       <h3>{updatedName || 'No name available'}</h3>
-      
+
       {editing ? (
         <div>
           <input
@@ -52,7 +52,7 @@ function CharacterCard({ character, onDelete, onEdit }) {
             placeholder="Image URL"
           />
           <button onClick={handleSave}>Save</button>
-          <button onClick={toggleEdit}>Cancel</button>
+          <button onClick={doEdit}>Cancel</button>
         </div>
       ) : (
         <div>
