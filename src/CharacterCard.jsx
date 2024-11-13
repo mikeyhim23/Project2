@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 function CharacterCard({ character, onDelete, onEdit }) {
-  const [editing, setEditing] = useState(false);
-  const [updatedDescription, setUpdatedDescription] = useState(character.description);
-  const [updatedName, setUpdatedName] = useState(character.name);
-  const [updatedAnime, setUpdatedAnime] = useState(character.anime);
-  const [updatedImage, setUpdatedImage] = useState(character.image || '');
+  const [editing, setEditing] = useState(false)
+  const [updatedDescription, setUpdatedDescription] = useState(character.description)
+  const [updatedName, setUpdatedName] = useState(character.name)
+  const [updatedAnime, setUpdatedAnime] = useState(character.anime)
+  const [updatedImage, setUpdatedImage] = useState(character.image || '')
 
   const doEdit = () => {
-    setEditing(!editing);
-  };
+    setEditing(!editing)
+  }
 
   const handleSave = () => {
     const updatedData = {
@@ -19,9 +19,9 @@ function CharacterCard({ character, onDelete, onEdit }) {
       anime: updatedAnime,
       image: updatedImage,
     };
-    onEdit(updatedData);
-    doEdit();
-  };
+    onEdit(updatedData)
+    doEdit()
+  }
 
   return (
     <div className="character-card">

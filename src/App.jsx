@@ -1,55 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import CharacterCard from './CharacterCard';
 import SearchBar from './SearchBar';
-import AddCharacter from './AddCharacter'; // New component for adding characters
+import AddCharacter from './AddCharacter';
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCharacters, setFilteredCharacters] = useState([]);
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [characters, setCharacters] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [filteredCharacters, setFilteredCharacters] = useState([])
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const [newCharacter, setNewCharacter] = useState({
     name: '',
     description: '',
     anime: '',
     image: '',
-  });
+  })
 
-  const [showHome, setShowHome] = useState(true); // This state determines whether to show the Home section or Add Character section
+  const [home, setHome] = useState(true)
 
-  // Fetch characters from the server
   const fetchCharacters = () => {
     setLoading(true);
     fetch('http://localhost:3000/characters')
       .then((res) => res.json())
       .then((data) => {
-        setCharacters(data);
-        setFilteredCharacters(data);
-        setError('');
+        setCharacters(data)
+        setFilteredCharacters(data)
+        setError('')
       })
       .catch((err) => {
-        setError('Cannot fetch character data.');
+        setError('Cannot fetch character data.')
       })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+      .then(() => {
+        setLoading(false)
+      })
+  }
 
-  // Handle search input change
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
+    setSearchQuery(e.target.value)
+  }
 
-  // Handle search form submit
   const handleSearchSubmit = () => {
     if (searchQuery.trim() === '') {
-      setError('Enter character name.');
-      setFilteredCharacters(characters);
+      setError('Enter character name.')
+      setFilteredCharacters(characters)
     } else {
       const searchResults = characters.filter((character) =>
         character.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      )
       if (searchResults.length > 0) {
         setFilteredCharacters(searchResults);
         setError('');
@@ -58,7 +55,12 @@ function App() {
         setFilteredCharacters([]);
       }
     }
-  };
+  }
+
+  const back = () => {
+    setSearchQuery('')
+    setFilteredCharacters(characters)
+  }
 
   // Handle delete character
   const handleDeleteCharacter = (id) => {
@@ -72,14 +74,16 @@ function App() {
       .then(() => {
         setCharacters((oldCharacters) =>
           oldCharacters.filter((character) => character.id !== id)
-        );
+        )
+        setFilteredCharacters((oldCharacters) =>
+          oldCharacters.filter((character) => character.id !== id)
+        )
       })
       .catch((err) => {
         setError('Cannot delete.');
-      });
-  };
+      })
+  }
 
-  // Handle edit character
   const handleEditCharacter = (id, updatedData) => {
     fetch(`http://localhost:3000/characters/${id}`, {
       method: 'PATCH',
@@ -94,18 +98,22 @@ function App() {
           oldCharacters.map((character) =>
             character.id === id ? updatedCharacter : character
           )
-        );
+        )
+        setFilteredCharacters((oldCharacters) =>
+          oldCharacters.map((character) =>
+            character.id === id ? updatedCharacter : character
+          )
+        )
       })
       .catch((err) => {
-        setError('Cannot update.');
-      });
-  };
+        setError('Cannot update.')
+      })
+  }
 
-  // Handle add new character
   const handleAddCharacter = () => {
     if (!newCharacter.name || !newCharacter.description || !newCharacter.anime) {
-      setError('Fill in all fields.');
-      return;
+      setError('Fill in all fields.')
+      return
     }
 
     fetch('http://localhost:3000/characters', {
@@ -117,35 +125,37 @@ function App() {
     })
       .then((res) => res.json())
       .then((createdCharacter) => {
-        setCharacters((oldCharacters) => [...oldCharacters, createdCharacter]);
-        setNewCharacter({ name: '', description: '', anime: '', image: '' });
-        setError('');
+        setCharacters((oldCharacters) => [...oldCharacters, createdCharacter])
+        setFilteredCharacters((oldCharacters) => [...oldCharacters, createdCharacter])
+        setNewCharacter({ name: '', description: '', anime: '', image: '' })
+        setError('')
       })
       .catch((err) => {
-        setError('Cannot add character.');
-      });
-  };
+        setError('Cannot add character.')
+      })
+  }
 
   useEffect(() => {
-    fetchCharacters();
-  }, []);
+    fetchCharacters()
+  }, [])
 
   return (
     <div className="App">
       <header>
-        <button onClick={() => setShowHome(true)}>Home</button>
-        <button onClick={() => setShowHome(false)}>Add Character</button>
+        <button onClick={() => setHome(true)}>Home</button>
+        <button onClick={() => setHome(false)}>Add Character</button>
       </header>
 
-      {showHome ? (
+      {home ? (
         <div>
-          <h2>Search for Anime Characters</h2>
+          <h2>Search Characters</h2>
 
           <SearchBar
             searchQuery={searchQuery}
             onSearchChange={handleSearchChange}
             onSearchSubmit={handleSearchSubmit}
           />
+          <button onClick={back}>Back</button>
 
           {error && <p className="error">{error}</p>}
 
@@ -163,7 +173,7 @@ function App() {
                   />
                 ))
               ) : (
-                <p>No characters found</p>
+                <p>null</p>
               )}
             </div>
           )}
