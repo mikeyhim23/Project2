@@ -147,7 +147,7 @@ function App() {
 
       {home ? (
         <div>
-          <h2>Search Characters</h2>
+          <h2>Character Card</h2>
 
           <SearchBar
             searchQuery={searchQuery}
