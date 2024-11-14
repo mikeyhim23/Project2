@@ -1,8 +1,8 @@
 .App {
   font-family: 'Georgia', serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333; 
+  background-color: #2c3e50;  
+  color: #ecf0f1;  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,8 +20,8 @@ header {
 
 header button {
   background-color: transparent;
-  border: 2px solid #333;
-  color: #333;
+  border: 2px solid #ecf0f1; 
+  color: #ecf0f1;  
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -29,14 +29,14 @@ header button {
 }
 
 header button:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: #ecf0f1;
+  color: #2c3e50; 
 }
 
 .character-card {
-  background-color: #fff;
+  background-color: #34495e; 
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   padding: 1rem;
   width: 220px;
   margin: 1rem;
@@ -51,7 +51,7 @@ header button:hover {
 .character-card img {
   width: 150px;
   height: 200px;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
@@ -59,15 +59,16 @@ header button:hover {
 .character-card h3 {
   font-size: 1.4rem;
   margin: 0.5rem 0;
+  color: #ecf0f1; 
 }
 
 .character-card p {
   font-size: 1rem;
-  color: #666;
+  color: #bdc3c7;
 }
 
 .character-card button {
-  background-color: #4CAF50;
+  background-color: #27ae60; 
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -77,7 +78,7 @@ header button:hover {
 }
 
 .character-card button:hover {
-  background-color: #45a049;
+  background-color: #2ecc71; 
 }
 
 .search-bar {
@@ -90,59 +91,70 @@ header button:hover {
 .search-bar input {
   padding: 0.5rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #bdc3c7; 
   border-radius: 8px;
   width: 300px;
+  background-color: #34495e;
+  color: #ecf0f1; 
 }
 
 .search-bar button {
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background-color: #333;
-  color: white;
+  background-color: #ecf0f1; 
+  color: #2c3e50; 
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .search-bar button:hover {
-  background-color: #444;
+  background-color: #bdc3c7; 
 }
 
 .add-character-form {
-  background-color: #fff;
+  background: linear-gradient(135deg, #34495e, #2c3e50);  
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-character-form:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);  
 }
 
 .add-character-form input {
   padding: 0.8rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #bdc3c7;
   border-radius: 8px;
   width: 100%;
   margin-bottom: 1rem;
+  background-color: #34495e; 
+  color: #ecf0f1; /
 }
 
 .add-character-form button {
-  background-color: #333;
-  color: white;
+  background-color: #ecf0f1; 
+  color: #2c3e50; 
   padding: 0.8rem 1.2rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
   font-size: 1.1rem;
+  transition: background-color 0.3s ease;
 }
 
 .add-character-form button:hover {
-  background-color: #444;
+  background-color: #bdc3c7; 
 }
 
 .error {
-  color: #e74c3c;
+  color: #e74c3c;  
   font-size: 1.2rem;
   margin-top: 1rem;
   text-align: center;
@@ -152,11 +164,11 @@ header button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem; 
+  gap: 1rem;
 }
 
 .character-card {
-  flex: 1 1 22%; 
-  max-width: 220px; 
+  flex: 1 1 22%;
+  max-width: 220px;
   margin: 1rem;
 }
