@@ -20,7 +20,7 @@ function App() {
 
   const fetchCharacters = () => {
     setLoading(true);
-    fetch('http://localhost:3000/characters')
+    fetch('https://anime-charactercard-project.onrender.com/characters')
       .then((res) => res.json())
       .then((data) => {
         setCharacters(data)
@@ -63,7 +63,7 @@ function App() {
   }
 
   const handleDeleteCharacter = (id) => {
-    fetch(`http://localhost:3000/characters/${id}`, {
+    fetch(`https://anime-charactercard-project.onrender.com/characters/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ function App() {
   }
 
   const handleEditCharacter = (id, updatedData) => {
-    fetch(`http://localhost:3000/characters/${id}`, {
+    fetch(`https://anime-charactercard-project.onrender.com/characters/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ function App() {
       return
     }
 
-    fetch('http://localhost:3000/characters', {
+    fetch('https://anime-charactercard-project.onrender.com/characters', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

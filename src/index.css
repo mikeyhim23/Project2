@@ -16,6 +16,15 @@ header {
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
+  background-color: #1e2a36;
+  padding: 1rem 0;
+  border-radius: 8px;
+}
+
+header h2 {
+  color: #ecf0f1;   
+  font-size: 1.8rem; 
+  margin: 0;         
 }
 
 header button {
