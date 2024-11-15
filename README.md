@@ -8,5 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 This is a react app for anime fans to search character cards.
 It encompasses all methods, syntax of react javascript.
-its a single page app that has navigation for adding a character.
-Live-link https://vercel.com/mikeyhim23s-projects/project2/DSRwv1WWbA1NeAaVFxjTR8BsWMLJ
+It is a single page app that has navigation for adding a character.
+Live-link : https://vercel.com/mikeyhim23s-projects/project2/DSRwv1WWbA1NeAaVFxjTR8BsWMLJ
